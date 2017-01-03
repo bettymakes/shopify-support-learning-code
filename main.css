@@ -1,0 +1,105 @@
+/*
+  Scroll down past this initial block of comments and you'll find an extra set of
+  style rules that I've added. It's sandwiched between comments that says
+  "THE FIX" (around line 54-56).
+  Once you add that rule, your floating issues will be fixed.
+
+  This is a separate concept we didn't discuss during Office Hours.
+
+  Typically, when I teach this in a course, I cover "box-sizing" before getting
+  to floats. Are you familiar with this concept of "box-sizing"?
+
+  I'll give you the TL;DR version here and we can go over it more in depth during
+  the next Office Hours if you're interested:
+
+  By default, all browsers will render our elements following this style rule:
+    `box-sizing: content-box;`
+
+  You'll basically almost always want to overwrite this style rule with:
+    `box-sizing: border-box;`
+
+  In fact, this is one of the first style rules I write when I create any new project.
+  So that answers WHAT you need to do, as for the WHY, there's quite a bit to explain
+  to fully grasp what's going on. I feel like you have a pretty firm grasp of the
+  box-model. The box-sizing property builds upon the box-model concept. For starters,
+  I'll link you to this resource:
+  https://css-tricks.com/box-sizing/
+
+  I think they do a fantastic job explaining the different values of box-sizing.
+
+  Definitely ping me if it's unclear. We'll chat more about it during Office Hours :).
+
+  And by the way, the "star" or "asterisk" selector, selects ALL elements on the page.
+  I'm essentially saying that I want all my elements on my page to adhere to the
+  border-box rule as opposed to the default (content-box).
+
+  ===========================================
+
+  BONUS:
+  Typically, I'd write the style rule like this:
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  I included the before & after pseudo elements as well. But that's an advance topic
+  and not including those selectors will not affect your page at the moment so I've
+  left if off to avoid introducing another layer of complexity.
+*/
+
+/* ==== THE FIX (start) ==== */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ==== THE FIX (end) ==== */
+
+body{
+	margin: 0;
+	/*width: 100%;*/
+}
+
+#wrapper{
+	overflow: hidden;
+}
+
+.box{
+	width: 50%;
+	height: 500px;
+	margin: 0;
+	border: 0;
+
+  /*
+    Try removing the `box-sizing: border-box` rule AND also removing the padding rule below.
+
+    What do you notice?
+    Why do you think this is happening?
+
+    Let's take it up during our next Office Hours :)
+  */
+	padding: 50px;
+	float: left;
+}
+
+.edu, .hobbiesComic, .passion, .projectsComic{
+	float: right;
+}
+
+.edu, .passion{
+	background-color: #cc3300;
+}
+
+.eduComic, .passionComic, .hobbiesComic, .projectsComic{
+	background-color: #d0d8e5;
+}
+
+.hobbies, .projects{
+	background-color: #0066ff;
+}
+
+p{
+	padding: 70px;
+}
